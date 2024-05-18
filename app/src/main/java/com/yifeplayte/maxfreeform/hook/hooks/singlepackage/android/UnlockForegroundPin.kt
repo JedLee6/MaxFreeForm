@@ -26,7 +26,9 @@ object UnlockForegroundPin : BaseHook() {
                         invokeMethodBestMatch(it.args[0], "getStackPackageName") as String
                     val unlockForegroundPinWhitelist =
                         getStringSet("unlock_foreground_pin_whitelist", setOf())
-                    it.result = unlockForegroundPinWhitelist.contains(packageName)
+                    //it.result = unlockForegroundPinWhitelist.contains(packageName)
+                    //Enforce all apps support ForegroundPin
+                    it.result = true
                 }
             }
     }
